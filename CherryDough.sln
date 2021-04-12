@@ -1,8 +1,46 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CherryDough.Domain", "CherryDough.Domain\CherryDough.Domain.csproj", "{53316833-A76B-40FC-9086-DBDC2C302298}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CherryDough.Doamin.Core", "CherryDough.Doamin.Core\CherryDough.Doamin.Core.csproj", "{D244A5EB-90A7-4968-9A4C-FE2A98EBEAF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CherryDough.Infra.Data", "CherryDough.Infra.Data\CherryDough.Infra.Data.csproj", "{26E6A3BD-EBAB-4B44-8E6F-9B615237F43A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CherryDough.Application", "CherryDough.Application\CherryDough.Application.csproj", "{EB54B988-9024-4050-B8F8-97459F157C17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CherryDough.Services.Api", "CherryDough.Services.Api\CherryDough.Services.Api.csproj", "{FEC0D6E9-7259-4C13-BA19-EF46FCA7ED55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CherryDough.Infra.IoC", "CherryDough.Infra.IoC\CherryDough.Infra.IoC.csproj", "{FB31E261-65A6-4DDB-9298-662A7624543A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53316833-A76B-40FC-9086-DBDC2C302298}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53316833-A76B-40FC-9086-DBDC2C302298}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53316833-A76B-40FC-9086-DBDC2C302298}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53316833-A76B-40FC-9086-DBDC2C302298}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D244A5EB-90A7-4968-9A4C-FE2A98EBEAF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D244A5EB-90A7-4968-9A4C-FE2A98EBEAF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D244A5EB-90A7-4968-9A4C-FE2A98EBEAF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D244A5EB-90A7-4968-9A4C-FE2A98EBEAF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26E6A3BD-EBAB-4B44-8E6F-9B615237F43A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26E6A3BD-EBAB-4B44-8E6F-9B615237F43A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26E6A3BD-EBAB-4B44-8E6F-9B615237F43A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26E6A3BD-EBAB-4B44-8E6F-9B615237F43A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB54B988-9024-4050-B8F8-97459F157C17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB54B988-9024-4050-B8F8-97459F157C17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB54B988-9024-4050-B8F8-97459F157C17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB54B988-9024-4050-B8F8-97459F157C17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEC0D6E9-7259-4C13-BA19-EF46FCA7ED55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEC0D6E9-7259-4C13-BA19-EF46FCA7ED55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEC0D6E9-7259-4C13-BA19-EF46FCA7ED55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEC0D6E9-7259-4C13-BA19-EF46FCA7ED55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB31E261-65A6-4DDB-9298-662A7624543A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB31E261-65A6-4DDB-9298-662A7624543A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB31E261-65A6-4DDB-9298-662A7624543A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB31E261-65A6-4DDB-9298-662A7624543A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
