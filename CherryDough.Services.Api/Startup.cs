@@ -26,6 +26,7 @@ namespace CherryDough.Services.Api
         {
             services.AddControllers();
             services.AddDatabaseConfiguration(Configuration);
+            services.AddApiIdentityConfiguration(Configuration);
             services.AddAutoMapperConfiguration();
             services.AddSwaggerGen(c =>
             {

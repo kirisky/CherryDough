@@ -16,6 +16,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\CherryDough.Application\CherryDough.Application.csproj" />
+      <ProjectReference Include="..\CherryDough.Infra.Identity\CherryDough.Infra.Identity.csproj" />
       <ProjectReference Include="..\CherryDough.Infra.IoC\CherryDough.Infra.IoC.csproj" />
     </ItemGroup>
 

@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CherryDough.Services.Api", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CherryDough.Infra.IoC", "CherryDough.Infra.IoC\CherryDough.Infra.IoC.csproj", "{FB31E261-65A6-4DDB-9298-662A7624543A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CherryDough.Infra.Identity", "CherryDough.Infra.Identity\CherryDough.Infra.Identity.csproj", "{02EC3BDD-2E22-492B-8B4A-BEE5B884CDB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{FB31E261-65A6-4DDB-9298-662A7624543A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB31E261-65A6-4DDB-9298-662A7624543A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB31E261-65A6-4DDB-9298-662A7624543A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02EC3BDD-2E22-492B-8B4A-BEE5B884CDB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02EC3BDD-2E22-492B-8B4A-BEE5B884CDB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02EC3BDD-2E22-492B-8B4A-BEE5B884CDB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02EC3BDD-2E22-492B-8B4A-BEE5B884CDB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
