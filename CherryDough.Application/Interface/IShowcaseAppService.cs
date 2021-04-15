@@ -9,7 +9,7 @@ namespace CherryDough.Application.Interface
     public interface IShowcaseAppService : IDisposable
     {
         Task<IEnumerable<ShowcaseViewModel>> GetAll();
-        Task<IEnumerable<ShowcaseViewModel>> GetByCategory(string categoryName);
+        Task<IEnumerable<ShowcaseViewModel>> GetById(Guid id);
         Task<ValidationResult> AddItemAsync(ShowcaseViewModel showcaseViewModel);
         Task<ValidationResult> UpdateItemAsync(ShowcaseViewModel showcaseViewModel);
         Task<ValidationResult> RemoveItemAsync(ShowcaseViewModel showcaseViewModel);

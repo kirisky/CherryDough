@@ -21,11 +21,9 @@ namespace CherryDough.Infra.Data.Repository
 
         public IUnitOfWork UnitOfWork { get; }
 
-        public async Task<IEnumerable<Item>> GetByCategory(string name)
+        public async Task<Item> GetById(Guid id)
         {
-            return await DbContext.Items
-                .Where(i => i.Category == name)
-                .ToListAsync();
+            return await DbContext.Items.FindAsync(id);
         }
 
         public async Task<IEnumerable<Item>> GetAll()

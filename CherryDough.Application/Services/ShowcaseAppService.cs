@@ -27,9 +27,9 @@ namespace CherryDough.Application.Services
             return _mapper.Map<IEnumerable<ShowcaseViewModel>>(await _showcaseRepository.GetAll());
         }
 
-        public async Task<IEnumerable<ShowcaseViewModel>> GetByCategory(string categoryName)
+        public async Task<IEnumerable<ShowcaseViewModel>> GetById(Guid id)
         {
-            return _mapper.Map<IEnumerable<ShowcaseViewModel>>(await _showcaseRepository.GetByCategory(categoryName));
+            return _mapper.Map<IEnumerable<ShowcaseViewModel>>(await _showcaseRepository.GetById(id));
         }
 
         public async Task<ValidationResult> AddItemAsync(ShowcaseViewModel showcaseViewModel)

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using CherryDough.Application.Interface;
 using CherryDough.Application.ViewModels;
@@ -26,9 +27,9 @@ namespace CherryDough.Services.Api.Controllers
 
         [AllowAnonymous]
         [HttpGet("showcase-dashboard/{category}")]
-        public async Task<IEnumerable<ShowcaseViewModel>> Get(string category)
+        public async Task<IEnumerable<ShowcaseViewModel>> Get(Guid id)
         {
-            return await _showcaseAppService.GetByCategory(category);
+            return await _showcaseAppService.GetById(id);
         }
 
         [AllowAnonymous]
