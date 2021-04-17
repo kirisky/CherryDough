@@ -6,7 +6,10 @@
 
     <ItemGroup>
       <ProjectReference Include="..\CherryDough.Doamin.Core\CherryDough.Doamin.Core.csproj" />
-      <ProjectReference Include="..\CherryDough.Infra.Bus\CherryDough.Infra.Bus.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="9.0.0" />
     </ItemGroup>
 
 </Project>

@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 using AutoMapper;
 using CherryDough.Application.Interface;
 using CherryDough.Application.ViewModels;
+using CherryDough.Domain.Commands;
 using CherryDough.Domain.Interfaces;
-using CherryDough.Domain.Models;
-using CherryDough.Domain.Validations;
 using FluentValidation.Results;
+using NetDevPack.Mediator;
 
 namespace CherryDough.Application.Services
 {
@@ -15,11 +15,13 @@ namespace CherryDough.Application.Services
     {
         private readonly IMapper _mapper;
         private readonly IShowcaseRepository _showcaseRepository;
+        private readonly IMediatorHandler _meditor;
 
-        public ShowcaseAppService(IMapper mapper, IShowcaseRepository showcaseRepository)
+        public ShowcaseAppService(IMapper mapper, IShowcaseRepository showcaseRepository, IMediatorHandler meditor)
         {
             _mapper = mapper;
             _showcaseRepository = showcaseRepository;
+            _meditor = meditor;
         }
         
         public async Task<IEnumerable<ShowcaseViewModel>> GetAll()
@@ -34,42 +36,20 @@ namespace CherryDough.Application.Services
 
         public async Task<ValidationResult> AddItemAsync(ShowcaseViewModel showcaseViewModel)
         {
-            var item = _mapper.Map<Item>(showcaseViewModel);
-            
-            var validationResult = await new AddItemValidation().ValidateAsync(item);
-            if (!validationResult.IsValid) return validationResult;
-            
-            if (!await _showcaseRepository.Add(item))
-                validationResult.Errors
-                    .Add(new ValidationFailure(string.Empty, "Add new item failed"));
-
-            return validationResult;
+            var addItemCommand = _mapper.Map<AddItemCommand>(showcaseViewModel);
+            return await _meditor.SendCommand(addItemCommand);
         }
 
         public async Task<ValidationResult> UpdateItemAsync(ShowcaseViewModel showcaseViewModel)
         {
-            var item = _mapper.Map<Item>(showcaseViewModel);
-            var validationResult = await new UpdateItemValidation().ValidateAsync(item);
-            if (!validationResult.IsValid) return validationResult;
-
-            if (!await _showcaseRepository.Update(item))
-                validationResult.Errors
-                    .Add(new ValidationFailure(string.Empty, "Update item failed"));
-
-            return validationResult;
+            var updateItemCommand = _mapper.Map<UpdateItemCommand>(showcaseViewModel);
+            return await _meditor.SendCommand(updateItemCommand);
         }
 
-        public async Task<ValidationResult> RemoveItemAsync(ShowcaseViewModel showcaseViewModel)
+        public async Task<ValidationResult> RemoveItemAsync(Guid id)
         {
-            var item = _mapper.Map<Item>(showcaseViewModel);
-            var validationResult = await new RemoveItemValidation().ValidateAsync(item);
-            if (!validationResult.IsValid) return validationResult;
-            
-            if (!await _showcaseRepository.Remove(item))
-                validationResult.Errors
-                    .Add(new ValidationFailure(string.Empty, "Remove the item failed"));
-
-            return validationResult;
+            var removeItemCommand = new RemoveItemCommand(id);
+            return await _meditor.SendCommand(removeItemCommand);
         }
 
         public void Dispose()

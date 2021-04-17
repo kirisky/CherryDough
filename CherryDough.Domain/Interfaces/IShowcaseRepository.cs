@@ -9,9 +9,10 @@ namespace CherryDough.Domain.Interfaces
     public interface IShowcaseRepository : IRepository<Item>
     {
         Task<Item> GetById(Guid id);
+        Task<Item> GetByName(string name);
         Task<IEnumerable<Item>> GetAll();
-        Task<bool> Add(Item item);
-        Task<bool> Update(Item item);
-        Task<bool> Remove(Item item);
+        void Add(Item item);
+        void Update(Item item);
+        void Remove(Item item);
     }
 }

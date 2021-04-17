@@ -36,10 +36,9 @@ namespace CherryDough.Services.Api.Controllers
         [HttpPost("showcase-dashboard")]
         public async Task<IActionResult> Post([FromBody] ShowcaseViewModel showcaseViewModel)
         {
-            await _showcaseAppService.AddItemAsync(showcaseViewModel);
-            return !ModelState.IsValid
-                ? ShowcaseResponse(ModelState)
-                : ShowcaseResponse(await _showcaseAppService.GetAll());
+            return ModelState.IsValid 
+                    ? ShowcaseResponse(await _showcaseAppService.AddItemAsync(showcaseViewModel)) 
+                    : ShowcaseResponse(ModelState);
         }
 
         [AllowAnonymous]
@@ -53,9 +52,9 @@ namespace CherryDough.Services.Api.Controllers
 
         [AllowAnonymous]
         [HttpDelete("showcase-dashboard")]
-        public async Task<IActionResult> Delete([FromBody] ShowcaseViewModel showcaseViewModel)
+        public async Task<IActionResult> Delete(Guid id)
         {
-            return ShowcaseResponse(await _showcaseAppService.RemoveItemAsync(showcaseViewModel));
+            return ShowcaseResponse(await _showcaseAppService.RemoveItemAsync(id));
         }
     }
 }

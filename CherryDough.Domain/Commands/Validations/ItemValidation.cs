@@ -2,9 +2,9 @@
 using CherryDough.Domain.Models;
 using FluentValidation;
 
-namespace CherryDough.Domain.Validations
+namespace CherryDough.Domain.Commands.Validations
 {
-    public abstract class ItemValidation<T> : AbstractValidator<T> where T : Item 
+    public abstract class ItemValidation<T> : AbstractValidator<T> where T : ItemCommand 
     {
         protected void ValidateId()
         {

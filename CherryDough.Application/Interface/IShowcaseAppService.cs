@@ -12,6 +12,6 @@ namespace CherryDough.Application.Interface
         Task<IEnumerable<ShowcaseViewModel>> GetById(Guid id);
         Task<ValidationResult> AddItemAsync(ShowcaseViewModel showcaseViewModel);
         Task<ValidationResult> UpdateItemAsync(ShowcaseViewModel showcaseViewModel);
-        Task<ValidationResult> RemoveItemAsync(ShowcaseViewModel showcaseViewModel);
+        Task<ValidationResult> RemoveItemAsync(Guid id);
     }
 }

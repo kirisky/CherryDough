@@ -19,34 +19,36 @@ namespace CherryDough.Infra.Data.Repository
             DbContext = context;
         }
 
-        public IUnitOfWork UnitOfWork { get; }
+        public IUnitOfWork UnitOfWork => DbContext;
 
         public async Task<Item> GetById(Guid id)
         {
             return await DbContext.Items.FindAsync(id);
         }
 
+        public async Task<Item> GetByName(string name)
+        {
+            return await DbContext.Items.AsNoTracking().FirstOrDefaultAsync(i => i.Name == name);
+        }
+
         public async Task<IEnumerable<Item>> GetAll()
         {
             return await DbContext.Items.ToListAsync();
         }
-
-        public async Task<bool> Add(Item item)
+        
+        public void Add(Item item)
         {
-            await DbContext.Items.AddAsync(item);
-            return await DbContext.SaveChangesAsync() > 0;
+            DbContext.Items.Add(item);
         }
 
-        public async Task<bool> Update(Item item)
+        public void Update(Item item)
         {
             DbContext.Items.Update(item);
-            return await DbContext.SaveChangesAsync() > 0;
         }
 
-        public async Task<bool> Remove (Item item)
+        public void Remove (Item item)
         {
             DbContext.Remove(item);
-            return await DbContext.SaveChangesAsync() > 0;
         }
 
         public void Dispose()

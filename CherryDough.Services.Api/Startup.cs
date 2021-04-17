@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CherryDough.Services.Api.Configurations;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -32,6 +33,7 @@ namespace CherryDough.Services.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "CherryDough.Services.Api", Version = "v1"});
             });
+            services.AddMediatR(typeof(Startup));
             services.AddDependencyInjectionConfiguration();
         }
 

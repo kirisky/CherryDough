@@ -1,11 +1,13 @@
-﻿using CherryDough.Domain.Models;
+﻿using System.Threading.Tasks;
+using CherryDough.Domain.Models;
 using CherryDough.Infra.Data.Mappings;
 using Microsoft.EntityFrameworkCore;
+using NetDevPack.Data;
 using NetDevPack.Messaging;
 
 namespace CherryDough.Infra.Data.Context
 {
-    public class CherryDoughContext : DbContext
+    public class CherryDoughContext : DbContext, IUnitOfWork
     {
         public DbSet<Item> Items { get; set; }
         
@@ -21,6 +23,12 @@ namespace CherryDough.Infra.Data.Context
             
             modelBuilder.ApplyConfiguration(new CustomerMap());
             base.OnModelCreating(modelBuilder);
+        }
+
+        public async Task<bool> Commit()
+        {
+            var success = await SaveChangesAsync() > 0;
+            return success;
         }
     }
 }
