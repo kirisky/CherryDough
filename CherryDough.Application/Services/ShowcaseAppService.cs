@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
+using CherryDough.Application.EventSourcedNormalizers;
 using CherryDough.Application.Interface;
 using CherryDough.Application.ViewModels;
 using CherryDough.Domain.Commands;
 using CherryDough.Domain.Interfaces;
+using CherryDough.Infra.Data.Repository.EventSourcing;
 using FluentValidation.Results;
 using NetDevPack.Mediator;
 
@@ -16,12 +18,18 @@ namespace CherryDough.Application.Services
         private readonly IMapper _mapper;
         private readonly IShowcaseRepository _showcaseRepository;
         private readonly IMediatorHandler _meditor;
+        private readonly IStoredEventRepository _storedEventRepository;
 
-        public ShowcaseAppService(IMapper mapper, IShowcaseRepository showcaseRepository, IMediatorHandler meditor)
+        public ShowcaseAppService(
+            IMapper mapper, 
+            IShowcaseRepository showcaseRepository, 
+            IMediatorHandler meditor,
+            IStoredEventRepository storedEventRepository)
         {
             _mapper = mapper;
             _showcaseRepository = showcaseRepository;
             _meditor = meditor;
+            _storedEventRepository = storedEventRepository;
         }
         
         public async Task<IEnumerable<ShowcaseViewModel>> GetAll()
@@ -50,6 +58,11 @@ namespace CherryDough.Application.Services
         {
             var removeItemCommand = new RemoveItemCommand(id);
             return await _meditor.SendCommand(removeItemCommand);
+        }
+
+        public async Task<IList<ItemHistoryData>> GetAllHistory(Guid id)
+        {
+            return ItemHistory.GenerateItemHistoryData(await _storedEventRepository.All(id));
         }
 
         public void Dispose()

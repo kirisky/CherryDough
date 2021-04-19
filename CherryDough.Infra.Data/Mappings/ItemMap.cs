@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CherryDough.Infra.Data.Mappings
 {
-    public class CustomerMap : IEntityTypeConfiguration<Item>
+    public class ItemMap : IEntityTypeConfiguration<Item>
     {
         public void Configure(EntityTypeBuilder<Item> builder)
         {

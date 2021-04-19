@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using CherryDough.Application.EventSourcedNormalizers;
 using CherryDough.Application.Interface;
 using CherryDough.Application.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -55,6 +56,13 @@ namespace CherryDough.Services.Api.Controllers
         public async Task<IActionResult> Delete(Guid id)
         {
             return ShowcaseResponse(await _showcaseAppService.RemoveItemAsync(id));
+        }
+
+        [AllowAnonymous]
+        [HttpGet("customer-management/history/{id:guid}")]
+        public async Task<IList<ItemHistoryData>> History(Guid id)
+        {
+            return await _showcaseAppService.GetAllHistory(id);
         }
     }
 }

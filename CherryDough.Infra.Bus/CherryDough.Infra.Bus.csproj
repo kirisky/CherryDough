@@ -5,11 +5,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\CherryDough.Doamin.Core\CherryDough.Doamin.Core.csproj" />
+      <PackageReference Include="MediatR" Version="9.0.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="MediatR" Version="9.0.0" />
+      <ProjectReference Include="..\CherryDough.Domain.Core\CherryDough.Domain.Core.csproj" />
     </ItemGroup>
 
 </Project>

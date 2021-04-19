@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using NetDevPack.Identity.User;
 
 namespace CherryDough.Services.Api
 {
@@ -28,6 +29,7 @@ namespace CherryDough.Services.Api
             services.AddControllers();
             services.AddDatabaseConfiguration(Configuration);
             services.AddApiIdentityConfiguration(Configuration);
+            services.AddAspNetUserConfiguration();
             services.AddAutoMapperConfiguration();
             services.AddSwaggerGen(c =>
             {

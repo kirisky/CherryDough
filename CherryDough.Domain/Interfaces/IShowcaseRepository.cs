@@ -9,7 +9,8 @@ namespace CherryDough.Domain.Interfaces
     public interface IShowcaseRepository : IRepository<Item>
     {
         Task<Item> GetById(Guid id);
-        Task<Item> GetByName(string name);
+        Task<Item> GetByIdWithoutTracking(Guid id);
+        Task<Item> GetByNameWithoutTracking(string name);
         Task<IEnumerable<Item>> GetAll();
         void Add(Item item);
         void Update(Item item);

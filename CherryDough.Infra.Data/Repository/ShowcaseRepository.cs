@@ -26,7 +26,12 @@ namespace CherryDough.Infra.Data.Repository
             return await DbContext.Items.FindAsync(id);
         }
 
-        public async Task<Item> GetByName(string name)
+        public async Task<Item> GetByIdWithoutTracking(Guid id)
+        {
+            return await DbContext.Items.AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
+        }
+
+        public async Task<Item> GetByNameWithoutTracking(string name)
         {
             return await DbContext.Items.AsNoTracking().FirstOrDefaultAsync(i => i.Name == name);
         }
@@ -48,7 +53,7 @@ namespace CherryDough.Infra.Data.Repository
 
         public void Remove (Item item)
         {
-            DbContext.Remove(item);
+            DbContext.Items.Remove(item);
         }
 
         public void Dispose()
