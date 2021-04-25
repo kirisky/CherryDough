@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Security.Claims;
+using System.Threading.Tasks;
 using CherryDough.Infra.Identity;
 using CherryDough.Infra.Identity.Models;
 using Microsoft.AspNetCore.Identity;
@@ -42,6 +43,7 @@ namespace CherryDough.Services.Api.Controllers
 
             if (result.Succeeded)
             {
+                await _userManager.AddClaimAsync(user, new Claim("Showcase", "Write,Remove"));
                 return ShowcaseResponse(GetFullJwt(user.Email));
             }
 
@@ -61,7 +63,7 @@ namespace CherryDough.Services.Api.Controllers
 
             var result = await _signInManager
                 .PasswordSignInAsync(loginUser.Email, loginUser.Password, false, true);
-
+            
             if (result.Succeeded)
             {
                 var fullJwt = GetFullJwt(loginUser.Email);

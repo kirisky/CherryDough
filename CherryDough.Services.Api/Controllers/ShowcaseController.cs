@@ -6,6 +6,7 @@ using CherryDough.Application.Interface;
 using CherryDough.Application.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NetDevPack.Identity.Authorization;
 
 namespace CherryDough.Services.Api.Controllers
 {
@@ -33,7 +34,7 @@ namespace CherryDough.Services.Api.Controllers
             return await _showcaseAppService.GetById(id);
         }
 
-        [AllowAnonymous]
+        [CustomAuthorize("Showcase", "Write")]
         [HttpPost("showcase-dashboard")]
         public async Task<IActionResult> Post([FromBody] ShowcaseViewModel showcaseViewModel)
         {
@@ -42,7 +43,7 @@ namespace CherryDough.Services.Api.Controllers
                     : ShowcaseResponse(ModelState);
         }
 
-        [AllowAnonymous]
+        [CustomAuthorize("Showcase", "Write")]
         [HttpPut("showcase-dashboard")]
         public async Task<IActionResult> Put([FromBody] ShowcaseViewModel showcaseViewModel)
         {
@@ -51,7 +52,7 @@ namespace CherryDough.Services.Api.Controllers
                 : ShowcaseResponse(ModelState);
         }
 
-        [AllowAnonymous]
+        [CustomAuthorize("Showcase", "Remove")]
         [HttpDelete("showcase-dashboard")]
         public async Task<IActionResult> Delete(Guid id)
         {
@@ -59,7 +60,7 @@ namespace CherryDough.Services.Api.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet("customer-management/history/{id:guid}")]
+        [HttpGet("showcase-dashboard/history/{id:guid}")]
         public async Task<IList<ItemHistoryData>> History(Guid id)
         {
             return await _showcaseAppService.GetAllHistory(id);

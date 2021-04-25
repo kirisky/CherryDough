@@ -6,6 +6,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\CherryDough.Application\CherryDough.Application.csproj" />
+      <ProjectReference Include="..\CherryDough.Infra.Identity\CherryDough.Infra.Identity.csproj" />
     </ItemGroup>
 
 </Project>
