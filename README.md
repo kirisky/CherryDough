@@ -1,8 +1,8 @@
-# CherryDough
+<img src="https://raw.githubusercontent.com/kirisky/CherryDough/main/imgs/Logo.png" alt="Equinox Project">
 
-What is this Project?
+What is the CherryDough Project?
 =====================
-This project is a practice project. The main goal is to practice the most common used technologies on .NET Platform.
+This project is a toy project. The main goal is to practice the most common used technologies on .NET Platform.
 
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/4b4a47e18cbc4d8fb759009c9fe458b6)](https://www.codacy.com/gh/kirisky/CherryDough/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kirisky/CherryDough&amp;utm_campaign=Badge_Grade)
