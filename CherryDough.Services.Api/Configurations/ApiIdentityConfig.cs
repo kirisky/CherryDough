@@ -12,7 +12,7 @@ namespace CherryDough.Services.Api.Configurations
         public static void AddApiIdentityConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddIdentityEntityFrameworkContextConfiguration(options =>
-                options.UseSqlite(configuration.GetConnectionString("SqliteLocal"),
+                options.UseSqlite(configuration.GetConnectionString("SqliteIdentityLocal"),
                     b => b.MigrationsAssembly("CherryDough.Infra.Identity")));
 
             services.AddIdentityConfiguration();
