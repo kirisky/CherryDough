@@ -16,7 +16,7 @@ namespace CherryDough.Services.Api.Configurations
                 options.UseSqlite(configuration.GetConnectionString("SqliteLocal")));
 
             services.AddDbContext<StoredEventContext>(options =>
-                options.UseSqlite(configuration.GetConnectionString("SqliteLocal")));
+                options.UseSqlite(configuration.GetConnectionString("SqliteEventLocal")));
         }
     }
 }

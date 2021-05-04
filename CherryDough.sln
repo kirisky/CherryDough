@@ -16,15 +16,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CherryDough.Infra.Identity"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CherryDough.Infra.Bus", "CherryDough.Infra.Bus\CherryDough.Infra.Bus.csproj", "{71061022-803C-4DD6-B701-A40DFAC54606}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{5203FA4A-13AB-434A-AAE4-4C038FFC81E0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Services", "1 - Services", "{06DB13C3-3069-462D-A347-BB98B866BA94}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Services", "2 - Services", "{06DB13C3-3069-462D-A347-BB98B866BA94}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{4C834B7D-D9C6-4AFA-B63E-F538190D7E20}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Application", "3 - Application", "{4C834B7D-D9C6-4AFA-B63E-F538190D7E20}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{58E710C1-22AC-4F5F-A83B-08394BD64675}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Domain", "4 - Domain", "{58E710C1-22AC-4F5F-A83B-08394BD64675}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Infra", "5 - Infra", "{1E6024BA-A578-4564-9361-3B6C64AAB8DF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{1E6024BA-A578-4564-9361-3B6C64AAB8DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

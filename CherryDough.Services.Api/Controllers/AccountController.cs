@@ -9,7 +9,6 @@ using Microsoft.Extensions.Options;
 namespace CherryDough.Services.Api.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
     public class AccountController : ApiController
     {
         private readonly SignInManager<IdentityUser> _signInManager;
